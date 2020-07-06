@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1169
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentalApi", "CarRentalApi\CarRentalApi.csproj", "{EC9DC225-86A3-4336-BCC6-D8EF34D706E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL2\DAL.csproj", "{9026E776-1F85-46C8-931D-80C0B9A56DB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC9DC225-86A3-4336-BCC6-D8EF34D706E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC9DC225-86A3-4336-BCC6-D8EF34D706E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC9DC225-86A3-4336-BCC6-D8EF34D706E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC9DC225-86A3-4336-BCC6-D8EF34D706E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9026E776-1F85-46C8-931D-80C0B9A56DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9026E776-1F85-46C8-931D-80C0B9A56DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9026E776-1F85-46C8-931D-80C0B9A56DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9026E776-1F85-46C8-931D-80C0B9A56DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36E46A22-D13D-44D5-9B43-F88CF1F61560}
+	EndGlobalSection
+EndGlobal
