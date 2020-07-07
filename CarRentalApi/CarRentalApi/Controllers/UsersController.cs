@@ -8,8 +8,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using CarRentalApi.Dtos;
-using CarRentalApi.Models;
 using DAL;
 
 namespace CarRentalApi.Controllers
@@ -17,128 +15,104 @@ namespace CarRentalApi.Controllers
     public class UsersController : ApiController
     {
         private CarRentalDBEntities db = new CarRentalDBEntities();
-        //private AppConfiguration CarEntity = new AppConfiguration();
 
         // GET: api/Users
-        public IEnumerable<User> GetUsers()
+        public List<User> GetUsers()
         {
-            //
-            return db.Users;
+            return db.Users.ToList<User>();
         }
 
-        //public User GetUser()
-        //{
+        // GET: api/Users/5
+        [ResponseType(typeof(User))]
+        public IHttpActionResult GetUser(int id)
+        {
+            User user = db.Users.Find(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
 
-        //    return new User();
-        //}
+            return Ok(user);
+        }
 
-        //// GET: api/Users/5
-        //[ResponseType(typeof(User))]
-        //public IHttpActionResult GetUser(string id)
-        //{
-        //    User user = db.Users.Find(id);
-        //    if (user == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // PUT: api/Users/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutUser(int id, User user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    return Ok(user);
-        //}
+            if (id != user.UserID)
+            {
+                return BadRequest();
+            }
 
-        //// PUT: api/Users/5
-        //[ResponseType(typeof(void))]
-        //public IHttpActionResult PutUser(string id, User user)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+            db.Entry(user).State = EntityState.Modified;
 
-        //    if (id != user.UserId)
-        //    {
-        //        return BadRequest();
-        //    }
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-        //    db.Entry(user).State = EntityState.Modified;
+            return StatusCode(HttpStatusCode.NoContent);
+        }
 
-        //    try
-        //    {
-        //        db.SaveChanges();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!UserExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
+        // POST: api/Users
+        [ResponseType(typeof(User))]
+        public IHttpActionResult PostUser(User user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    return StatusCode(HttpStatusCode.NoContent);
-        //}
+            db.Users.Add(user);
+            db.SaveChanges();
 
-        //// POST: api/Users
-        //[ResponseType(typeof(User))]
-        //public IHttpActionResult PostUser(UserDto user)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+            return CreatedAtRoute("DefaultApi", new { id = user.UserID }, user);
+        }
 
-        //    //db.Users.Add(user);
+        // DELETE: api/Users/5
+        [ResponseType(typeof(User))]
+        public IHttpActionResult DeleteUser(int id)
+        {
+            User user = db.Users.Find(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
 
-        //    try
+            db.Users.Remove(user);
+            db.SaveChanges();
 
-        //    {
-        //        db.SaveChanges();
-        //    }
-        //    catch (DbUpdateException)
-        //    {
-        //        if (UserExists(user.UserId))
-        //        {
-        //            return Conflict();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
+            return Ok(user);
+        }
 
-        //    return CreatedAtRoute("DefaultApi", new { id = user.UserId }, user);
-        //}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-        //// DELETE: api/Users/5
-        //[ResponseType(typeof(User))]
-        //public IHttpActionResult DeleteUser(string id)
-        //{
-        //    User user = db.Users.Find(id);
-        //    if (user == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    db.Users.Remove(user);
-        //    db.SaveChanges();
-
-        //    return Ok(user);
-        //}
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
-
-        //private bool UserExists(string id)
-        //{
-        //    return db.Users.Count(e => e.UserId == id) > 0;
-        //}
+        private bool UserExists(int id)
+        {
+            return db.Users.Count(e => e.UserID == id) > 0;
+        }
     }
 }

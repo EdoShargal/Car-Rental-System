@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.1169
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentalApi", "CarRentalApi\CarRentalApi.csproj", "{EC9DC225-86A3-4336-BCC6-D8EF34D706E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL2\DAL.csproj", "{9026E776-1F85-46C8-931D-80C0B9A56DB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{9CE4F5EC-903D-41C4-9763-B98C0146F6A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{EC9DC225-86A3-4336-BCC6-D8EF34D706E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC9DC225-86A3-4336-BCC6-D8EF34D706E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC9DC225-86A3-4336-BCC6-D8EF34D706E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9026E776-1F85-46C8-931D-80C0B9A56DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9026E776-1F85-46C8-931D-80C0B9A56DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9026E776-1F85-46C8-931D-80C0B9A56DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9026E776-1F85-46C8-931D-80C0B9A56DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CE4F5EC-903D-41C4-9763-B98C0146F6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE4F5EC-903D-41C4-9763-B98C0146F6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE4F5EC-903D-41C4-9763-B98C0146F6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE4F5EC-903D-41C4-9763-B98C0146F6A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

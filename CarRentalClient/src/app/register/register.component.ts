@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user.model';
 import { UserService } from './user.service'
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-register',
@@ -10,8 +12,9 @@ import { UserService } from './user.service'
 export class RegisterComponent implements OnInit {
 
   public userModel: User
+  public users: User[]
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,private http:  HttpClient) {}
 
   ngOnInit() {
     this.userModel = {
@@ -50,6 +53,13 @@ export class RegisterComponent implements OnInit {
       image: null,
       title: null,
     }
+  }
+
+  getAll(){
+    this.http.get("http://localhost:57247/api/users").subscribe(
+      (result) => console.log(result),
+      (err) => console.log(err)
+    )
   }
 
 }

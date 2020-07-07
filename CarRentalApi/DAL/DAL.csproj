@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9026E776-1F85-46C8-931D-80C0B9A56DB9}</ProjectGuid>
+    <ProjectGuid>{9CE4F5EC-903D-41C4-9763-B98C0146F6A9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAL</RootNamespace>
@@ -65,8 +65,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarRental.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>CarRental.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs">
+      <DependentUpon>CarRental.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle.cs">
+      <DependentUpon>CarRental.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleType.cs">
       <DependentUpon>CarRental.tt</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -12,26 +12,23 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Vehicle
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Vehicle()
         {
             this.Orders = new HashSet<Order>();
         }
     
-        public int UserID { get; set; }
-        public string UserNumber { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Username { get; set; }
-        public string HashPassword { get; set; }
-        public string Gender { get; set; }
-        public string Email { get; set; }
-        public Nullable<System.DateTime> DayOfBirth { get; set; }
-        public string Title { get; set; }
+        public int VehicleID { get; set; }
+        public int Mileage { get; set; }
+        public bool isRentable { get; set; }
+        public bool isFix { get; set; }
+        public string SerialNumber { get; set; }
+        public Nullable<int> VehicleTypeID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+        public virtual VehicleType VehicleType { get; set; }
     }
 }
