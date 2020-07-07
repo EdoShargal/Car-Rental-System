@@ -14,7 +14,8 @@ namespace CarRentalApi.Controllers
 {
     public class UsersController : ApiController
     {
-        private CarRentalDBEntities db = new CarRentalDBEntities();
+        //private CarRentalDBEntities db = new CarRentalDBEntities();
+        private UsersLogic DB = new UsersLogic()
 
         // GET: api/Users
         public List<User> GetUsers()
